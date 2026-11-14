@@ -12,9 +12,9 @@ function registrarPrestamo(equipo, cantidad, stockActual = inventario) {
     throw new Error("La cantidad debe ser un número mayor a cero.");
   }
 
-  //if (stockActual[equipo] < cantidad) {
-   // throw new Error("No hay suficiente stock disponible para el préstamo.");
- // }
+  if (stockActual[equipo] < cantidad) {
+ throw new Error("No hay suficiente stock disponible para el préstamo.");
+    }
 
   stockActual[equipo] -= cantidad;
   return {
